@@ -1,9 +1,11 @@
 {
   "name": "fsdialog",
-  "version": "0.1.1",
-  "description": "",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "version": "0.1.2",
+  "description": "JS library for modals with html5 <dialog>",
+  "main": "dist/fsdialog.js",
+  "types": "dist/fsdialog.d.ts",
+  "typings": "dist/fsdialog.d.ts",
+  "module": "dist/dist/fsdialog.js",
   "scripts": {
     "ts-types": " tsc --emitDeclarationOnly --outDir dist",
     "build": "rimraf dist && node ./esbuild.js && npm run ts-types"
@@ -11,7 +13,7 @@
   "keywords": [],
   "author": "",
   "type":"module",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "esbuild": "^0.19.3",
     "rimraf": "^5.0.1",

@@ -1,13 +1,10 @@
 //const esbuild = require('esbuild');
 import * as esbuild from 'esbuild'
 
-// import pkg from 'esbuild';
-// const { esbuild } = pkg;
-// //import { esbuild } from 'esbuild';
-//import process from 'node:process';
+
 
 await esbuild.build({
-    entryPoints: ['src/fsdialogs.ts', 'src/fsdialogs.css'],
+    entryPoints: [{ in: 'src/index.ts', out: "fsdialog" }, { in: 'src/fsdialogs.css', out: 'fsdialogs' }],
     outdir: 'dist',
     bundle: true,
     sourcemap: true,
@@ -19,7 +16,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.min', in: 'src/fsdialogs.ts' },
+        { out: 'fsdialog.min', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
@@ -32,26 +29,26 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.global', in: 'src/fsdialogs.ts' },
+        { out: 'fsdialog.global', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
     sourcemap: false,
     minify: false,
-    globalName:'fsdialog',
+    globalName: 'fsdialog',
     format: 'iife',
     target: ['ES2022']
 })
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.global.min', in: 'src/fsdialogs.ts' },
+        { out: 'fsdialog.global.min', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
     sourcemap: false,
     minify: true,
-    globalName:'fsdialog',
+    globalName: 'fsdialog',
     format: 'iife',
     target: ['ES2022']
 })

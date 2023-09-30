@@ -1,9 +1,4 @@
 // src/fsdialogs.ts
-var TypePrompt = /* @__PURE__ */ ((TypePrompt2) => {
-  TypePrompt2["TEXT"] = "text";
-  TypePrompt2["NUMBER"] = "number";
-  return TypePrompt2;
-})(TypePrompt || {});
 function fsAlert(bodyHtml, head = "Alert") {
   return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true });
 }
@@ -278,10 +273,9 @@ function htmlPrompt(value, prompt, head, valueId, options) {
   );
 }
 export {
-  TypePrompt,
   fsAlert,
   fsDialog,
   fsPrompt,
   fsSuccess
 };
-//# sourceMappingURL=fsdialogs.js.map
+//# sourceMappingURL=fsdialog.js.map

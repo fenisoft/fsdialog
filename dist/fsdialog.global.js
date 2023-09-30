@@ -18,20 +18,16 @@ var fsdialog = (() => {
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // src/fsdialogs.ts
-  var fsdialogs_exports = {};
-  __export(fsdialogs_exports, {
-    TypePrompt: () => TypePrompt,
+  // src/index.ts
+  var src_exports = {};
+  __export(src_exports, {
     fsAlert: () => fsAlert,
     fsDialog: () => fsDialog,
     fsPrompt: () => fsPrompt,
     fsSuccess: () => fsSuccess
   });
-  var TypePrompt = /* @__PURE__ */ ((TypePrompt2) => {
-    TypePrompt2["TEXT"] = "text";
-    TypePrompt2["NUMBER"] = "number";
-    return TypePrompt2;
-  })(TypePrompt || {});
+
+  // src/fsdialogs.ts
   function fsAlert(bodyHtml, head = "Alert") {
     return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true });
   }
@@ -305,5 +301,5 @@ var fsdialog = (() => {
 	`
     );
   }
-  return __toCommonJS(fsdialogs_exports);
+  return __toCommonJS(src_exports);
 })();
