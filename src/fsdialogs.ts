@@ -18,13 +18,8 @@ export interface IModalOptions {
 }
 
 
-export enum TypePrompt {
-	TEXT = "text",
-	NUMBER = "number"
-}
-
 export interface IPromptOptions {
-	type?: TypePrompt,
+	inputType?:string,
 	headClass?: string,
 	showClose?: boolean,
 	min?: string,
@@ -203,7 +198,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 
 	if (options === null || options === undefined || Object.keys(options).length === 0) {
 		options = {
-			type: TypePrompt.TEXT,
+			inputType: 'text',
 			headClass: '',
 			min: '',
 			max: '',
@@ -277,7 +272,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 function htmlPrompt(value: string, prompt: string, head: string, valueId: string, options: IPromptOptions): string {
 
 	const modalOptions: IPromptOptions = {
-		type: TypePrompt.TEXT,
+		inputType:'text',
 		headClass: '',
 		min: '',
 		max: '',
@@ -308,8 +303,8 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 		modalOptions.placeholder = options.placeholder;
 	}
 
-	if (options.type) {
-		modalOptions.type = options.type;
+	if (options.inputType) {
+		modalOptions.inputType = options.inputType;
 	}
 
 	if (options.min) {
@@ -340,7 +335,7 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 
 
 	let numberOptions = '';
-	if (modalOptions.type == TypePrompt.NUMBER) {
+	if (modalOptions.inputType == 'number') {
 		if (value == '') {
 			value = '0';
 		}
@@ -378,7 +373,7 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 				<label for="v${valueId}" ${hiddenLabel} >
 					${prompt}
 				</label>
-				<input class="${modalOptions.inputClass}"  type="${modalOptions.type}" name="name_${valueId}" required
+				<input class="${modalOptions.inputClass}"  type="${modalOptions.inputType}" name="name_${valueId}" required
 							id="v${valueId}" ${numberOptions} ${placeholder}
 							value="${value}"  maxlength="50" />
 			</div>

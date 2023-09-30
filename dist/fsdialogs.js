@@ -120,7 +120,7 @@ function fsPrompt(value, prompt, head, options = {}) {
   }
   if (options === null || options === void 0 || Object.keys(options).length === 0) {
     options = {
-      type: "text" /* TEXT */,
+      inputType: "text",
       headClass: "",
       min: "",
       max: "",
@@ -170,7 +170,7 @@ function fsPrompt(value, prompt, head, options = {}) {
 }
 function htmlPrompt(value, prompt, head, valueId, options) {
   const modalOptions = {
-    type: "text" /* TEXT */,
+    inputType: "text",
     headClass: "",
     min: "",
     max: "",
@@ -195,8 +195,8 @@ function htmlPrompt(value, prompt, head, valueId, options) {
   if (options.placeholder) {
     modalOptions.placeholder = options.placeholder;
   }
-  if (options.type) {
-    modalOptions.type = options.type;
+  if (options.inputType) {
+    modalOptions.inputType = options.inputType;
   }
   if (options.min) {
     modalOptions.min = options.min;
@@ -217,7 +217,7 @@ function htmlPrompt(value, prompt, head, valueId, options) {
     modalOptions.inputClass = options.inputClass;
   }
   let numberOptions = "";
-  if (modalOptions.type == "number" /* NUMBER */) {
+  if (modalOptions.inputType == "number") {
     if (value == "") {
       value = "0";
     }
@@ -252,7 +252,7 @@ function htmlPrompt(value, prompt, head, valueId, options) {
 				<label for="v${valueId}" ${hiddenLabel} >
 					${prompt}
 				</label>
-				<input class="${modalOptions.inputClass}"  type="${modalOptions.type}" name="name_${valueId}" required
+				<input class="${modalOptions.inputClass}"  type="${modalOptions.inputType}" name="name_${valueId}" required
 							id="v${valueId}" ${numberOptions} ${placeholder}
 							value="${value}"  maxlength="50" />
 			</div>

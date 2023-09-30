@@ -12,12 +12,8 @@ export interface IModalOptions {
     width?: string;
     container?: HTMLElement | null;
 }
-export declare enum TypePrompt {
-    TEXT = "text",
-    NUMBER = "number"
-}
 export interface IPromptOptions {
-    type?: TypePrompt;
+    inputType?: string;
     headClass?: string;
     showClose?: boolean;
     min?: string;

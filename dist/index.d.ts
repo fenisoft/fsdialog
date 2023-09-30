@@ -1,1 +1,1 @@
-export { fsAlert, fsSuccess, fsDialog, fsPrompt } from "./fsdialogs";
+export { fsAlert, fsSuccess, fsDialog, fsPrompt, IModalButton, IModalOptions, IPromptOptions, IPromptResult } from "./fsdialogs";

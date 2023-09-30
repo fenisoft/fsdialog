@@ -34,7 +34,15 @@ async function confirmDialog() {
 
 async function promptDialog() {
     const result = document.querySelector("#promptResult");
-    const response = await fsdialog.fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog', { headClass: 'bg-warning text-white bg-gradient' });
+    const response = await fsdialog.fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog', { headClass: 'bg-warning text-white bg-gradient', });
+    if (response.button == 'OK') {
+        result.textContent = response.value;
+    }
+}
+
+async function promptNumberDialog() {
+    const result = document.querySelector("#promptNumberResult");
+    const response = await fsdialog.fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog', { headClass: 'bg-dark  text-white bg-gradient', inputType:'number' });
     if (response.button == 'OK') {
         result.textContent = response.value;
     }
@@ -74,6 +82,10 @@ document.getElementById("confirmBtn").addEventListener('click', () => {
 
 document.getElementById("promptBtn").addEventListener('click', () => {
     promptDialog();
+});
+
+document.getElementById("promptNumberBtn").addEventListener('click', () => {
+    promptNumberDialog();
 })
 
 document.getElementById("innerBtn").addEventListener('click', () => {
