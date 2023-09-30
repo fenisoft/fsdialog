@@ -278,4 +278,4 @@ export {
   fsPrompt,
   fsSuccess
 };
-//# sourceMappingURL=fsdialog.js.map
+//# sourceMappingURL=fsdialogs.js.map

@@ -1,11 +1,11 @@
 {
-  "name": "fsdialog",
-  "version": "0.1.2",
+  "name": "@fenisoft/fsdialog",
+  "version": "0.1.3",
   "description": "JS library for modals with html5 <dialog>",
-  "main": "dist/fsdialog.js",
-  "types": "dist/fsdialog.d.ts",
-  "typings": "dist/fsdialog.d.ts",
-  "module": "dist/dist/fsdialog.js",
+  "main": "dist/fsdialogs.js",
+  "types": "dist/fsdialogs.d.ts",
+  "typings": "dist/fsdialogs.d.ts",
+  "module": "dist/dist/fsdialogs.js",
   "scripts": {
     "ts-types": " tsc --emitDeclarationOnly --outDir dist",
     "build": "rimraf dist && node ./esbuild.js && npm run ts-types"

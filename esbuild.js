@@ -4,7 +4,7 @@ import * as esbuild from 'esbuild'
 
 
 await esbuild.build({
-    entryPoints: [{ in: 'src/index.ts', out: "fsdialog" }, { in: 'src/fsdialogs.css', out: 'fsdialogs' }],
+    entryPoints: [{ in: 'src/index.ts', out: "fsdialogs" }, { in: 'src/fsdialogs.css', out: 'fsdialogs' }],
     outdir: 'dist',
     bundle: true,
     sourcemap: true,
@@ -16,7 +16,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.min', in: 'src/index.ts' },
+        { out: 'fsdialogs.min', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
@@ -29,7 +29,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.global', in: 'src/index.ts' },
+        { out: 'fsdialogs.global', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
@@ -42,7 +42,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'fsdialog.global.min', in: 'src/index.ts' },
+        { out: 'fsdialogs.global.min', in: 'src/index.ts' },
     ],
     outdir: 'dist',
     bundle: true,
