@@ -210,7 +210,6 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 			inputClass:'fs-dialog-input',
 			width: '400px',
 			placeholder: '',
-
 		};
 	}
 

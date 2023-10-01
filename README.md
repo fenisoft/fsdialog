@@ -5,7 +5,6 @@
 >Simple JS library for modal with html5 ```<dialog>``` element
 
 
-
 ## Install
 
 ```bash
@@ -35,7 +34,7 @@ const response = await fsDialog(buttons, 'Are you sure ?', 'Confirm dialog', opt
 
 /* fsPrompt */
 const value = '';
-const response = await fsdialog.fsPrompt(value, 'Insert value:', 'Prompt Dialog', { headClass: 'bg-warning text-white bg-gradient', });
+const response = await fsPrompt(value, 'Insert value:', 'Prompt Dialog', { headClass: 'bg-warning text-white bg-gradient', });
 // return a Promise
 //response  = {button:'OK', 'value:?'}
 if (response.button == 'OK') {
@@ -71,6 +70,7 @@ const options = {
     inputClass:'fs-dialog-input', // fs-dialog-input definited in fsdialog.css
     width: '400px', // 'auto' = autosize type<string>
     placeholder: '', // placehiolder input type<string>
+    container: body // type<HTMLElement>
 };
 
 
