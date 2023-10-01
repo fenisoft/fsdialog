@@ -17,6 +17,7 @@ await esbuild.build({
 await esbuild.build({
     entryPoints: [
         { out: 'fsdialogs.min', in: 'src/index.ts' },
+        { in: 'src/fsdialogs.css', out: 'fsdialogs.min' }
     ],
     outdir: 'dist',
     bundle: true,

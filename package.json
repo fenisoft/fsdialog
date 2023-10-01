@@ -6,6 +6,10 @@
   "types": "dist/fsdialogs.d.ts",
   "typings": "dist/fsdialogs.d.ts",
   "module": "dist/fsdialogs.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fenisoft/fsdialog"
+  },
   "scripts": {
     "ts-types": " tsc --emitDeclarationOnly --outDir dist",
     "build": "rimraf dist && node ./esbuild.js && npm run ts-types"
