@@ -19,7 +19,7 @@ export interface IModalOptions {
 
 
 export interface IPromptOptions {
-	inputType?:string,
+	inputType?: string,
 	headClass?: string,
 	showClose?: boolean,
 	min?: string,
@@ -123,6 +123,8 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 	element.classList.add("fs-dialog-modal");
 	if (width != 'auto') {
 		element.style.width = width;
+	} else {
+		element.classList.add('fs-dialog-auto');
 	}
 	element.innerHTML = htmlDialog(btns, body, head, modalOptions);
 
@@ -207,7 +209,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 			buttonCloseInnerHTML: 'CLOSE',
 			buttonOkClass: 'btn btn-primary btn-sm',
 			buttonCloseClass: 'btn btn-secondary btn-sm',
-			inputClass:'fs-dialog-input',
+			inputClass: 'fs-dialog-input',
 			width: '400px',
 			placeholder: '',
 		};
@@ -224,7 +226,12 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 	const element = document.createElement('dialog');
 
 	element.classList.add("fs-dialog-modal");
-	element.style.width = width;
+	if (width != 'auto') {
+		element.style.width = width;
+	} else {
+		element.classList.add('fs-dialog-auto');
+	}
+	//element.style.width = width;
 	element.innerHTML = htmlPrompt(value, prompt, head, valueId, options);
 
 
@@ -271,7 +278,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 function htmlPrompt(value: string, prompt: string, head: string, valueId: string, options: IPromptOptions): string {
 
 	const modalOptions: IPromptOptions = {
-		inputType:'text',
+		inputType: 'text',
 		headClass: '',
 		min: '',
 		max: '',

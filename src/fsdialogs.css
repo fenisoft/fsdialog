@@ -83,3 +83,7 @@
 .fs-dialog-input:focus {
   outline: none;
 }
+
+.fs-dialog-auto {
+  max-width: calc(100vw - 100px);
+}

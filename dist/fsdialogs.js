@@ -55,6 +55,8 @@ function fsDialog(buttons, body, head, options = {}) {
   element.classList.add("fs-dialog-modal");
   if (width != "auto") {
     element.style.width = width;
+  } else {
+    element.classList.add("fs-dialog-auto");
   }
   element.innerHTML = htmlDialog(btns, body, head, modalOptions);
   if (modalOptions.container) {
@@ -141,7 +143,11 @@ function fsPrompt(value, prompt, head, options = {}) {
   const valueId = `${(/* @__PURE__ */ new Date()).getTime()}`;
   const element = document.createElement("dialog");
   element.classList.add("fs-dialog-modal");
-  element.style.width = width;
+  if (width != "auto") {
+    element.style.width = width;
+  } else {
+    element.classList.add("fs-dialog-auto");
+  }
   element.innerHTML = htmlPrompt(value, prompt, head, valueId, options);
   if (options.container) {
     options.container?.append(element);
