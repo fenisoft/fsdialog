@@ -155,7 +155,15 @@ function fsPrompt(value, prompt, head, options = {}) {
     document.body.append(element);
   }
   return new Promise((resolve) => {
+    const input = element.querySelector(`#v${valueId}`);
     element.showModal();
+    if (input) {
+      if (input.type != "number") {
+        const end = input?.value.length;
+        input?.setSelectionRange(end, end);
+        input?.focus();
+      }
+    }
     document.querySelector(`#form_${valueId}`)?.addEventListener("submit", (event) => {
       event.preventDefault();
       const el = document.getElementById(`v${valueId}`);

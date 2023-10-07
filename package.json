@@ -1,6 +1,6 @@
 {
   "name": "@fenisoft/fsdialog",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "simple html5 <dialog> modal",
   "main": "dist/fsdialogs.js",
   "types": "dist/fsdialogs.d.ts",
@@ -12,7 +12,8 @@
   },
   "scripts": {
     "ts-types": " tsc --emitDeclarationOnly --outDir dist",
-    "build": "rimraf dist && node ./esbuild.js && npm run ts-types"
+    "build": "rimraf dist && node ./esbuild.js && npm run ts-types",
+    "dev": "node ./watch.js"
   },
   "keywords": [],
   "author": "",

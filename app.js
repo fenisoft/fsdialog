@@ -1,4 +1,4 @@
-import { fsDialog, fsPrompt } from './dist/fsdialogs.js';
+import { fsDialog, fsPrompt,fsSuccess } from './dist/fsdialogs.js';
 
 //
 function simpleDialog() {
@@ -9,7 +9,7 @@ function simpleDialog() {
         headClass: "bg-success  text-white",
         closeButton: false
     }
-    fsDialog(buttons, `The Force is with you, young <b class="text-primary">Skywalker</b>. 
+    fsDialog(buttons, /*html*/`The Force is with you, young <b class="text-primary">Skywalker</b>. 
     But you are not a <b class="text-success">Jedi</b> yet!`, 'Simple dialog', options);
 }
 
@@ -18,14 +18,13 @@ async function confirmDialog() {
     const result = document.querySelector("#confirmResult");
     result.innerHTML = 'Result:';
     const buttons = [
-        { text: `<b>YES</b>`, value: 'YES', class: "btn btn-success btn-sm" },
-        { text: `<b>NO</b>`, value: 'NO', class: "btn btn-dark btn-sm" }
+        { text: /*html*/`<b>YES</b>`, value: 'YES', class: "btn btn-success btn-sm" },
+        { text: /*html*/`<b>NO</b>`, value: 'NO', class: "btn btn-dark btn-sm" }
     ];
     const options = {
         headClass: "bg-danger text-white",
         closeButton: true,
     }
-
 
     const response = await fsDialog(buttons, 'Are you sure ?', 'Confirm dialog', options);
     result.innerHTML = `Result: ${response}`;

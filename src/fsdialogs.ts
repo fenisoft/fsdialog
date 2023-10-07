@@ -242,7 +242,15 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 	}
 
 	return new Promise((resolve) => {
+		const input = element.querySelector(`#v${valueId}`);
 		element.showModal();
+		if (input) {
+			if ((input as HTMLInputElement).type != 'number') {
+				const end = (input as HTMLInputElement)?.value.length;
+				(input as HTMLInputElement)?.setSelectionRange(end, end);
+				(input as HTMLInputElement)?.focus();
+			}
+		}
 		document.querySelector(`#form_${valueId}`)?.addEventListener('submit', event => {
 			event.preventDefault();
 			const el = document.getElementById(`v${valueId}`);
@@ -261,7 +269,6 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 		element.addEventListener('cancel', event => {
 			resolve({ button: 'CLOSE' });
 		});
-
 	});
 }
 
@@ -273,7 +280,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
  * @param {string} head 
  * @param {string} valueId 
  * @param {IPromptOptions} options 
- * @returns {string}
+ * @returns {string} 
  */
 function htmlPrompt(value: string, prompt: string, head: string, valueId: string, options: IPromptOptions): string {
 
@@ -336,8 +343,6 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 	if (options.inputClass) {
 		modalOptions.inputClass = options.inputClass;
 	}
-
-
 
 
 	let numberOptions = '';

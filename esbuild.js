@@ -1,8 +1,6 @@
 //const esbuild = require('esbuild');
 import * as esbuild from 'esbuild'
 
-
-
 await esbuild.build({
     entryPoints: [{ in: 'src/index.ts', out: "fsdialogs" }, { in: 'src/fsdialogs.css', out: 'fsdialogs' }],
     outdir: 'dist',
