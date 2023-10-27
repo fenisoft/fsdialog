@@ -11,9 +11,12 @@
 npm install @fenisoft/fsdialog
 ```
 
-## Usage
+## usage as esm module
 
 ```javascript
+//  css
+//  <link href="dist/fsdialogs.css" rel="stylesheet">
+
 import {fsDialog,fsPrompt} from '@fsdialog/fsdialog';
 
 /* fsDialog */
@@ -43,6 +46,30 @@ if (response.button == 'OK') {
 
 
 // see index.html app.js for examples
+```
+
+### usage as global
+
+```html
+<head>
+    <link href="dist/fsdialogs.css" rel="stylesheet">
+</head>
+<script src="dist/fsdialog.global.js"></script>
+
+<script>
+  const buttons = [
+    { text: `<b>YES</b>`, value: 'YES', class: "btn btn-success btn-sm" },
+    { text: `<b>NO</b>`, value: 'NO', class: "btn btn-dark btn-sm" }
+    ];
+
+    const options = {
+        headClass: "bg-danger text-white",
+        closeButton: true,
+    }
+
+const response = await fsdialog.fsDialog(buttons, 'Are you sure ?', 'Confirm dialog', options);
+
+</script>
 ```
 
 ### OPTIONS

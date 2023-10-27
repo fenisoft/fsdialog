@@ -44,11 +44,11 @@ export interface IPromptResult {
 //import './fsdialogs.css';
 
 export function fsAlert(bodyHtml: string, head: string = 'Alert') {
-	return fsDialog([{ text: 'OK', value: 'OK', class: 'btn btn-sm btn-danger' }], bodyHtml, head, { headClass: 'bg-danger text-white', closeButton: true });
+	return fsDialog([{ text: 'OK', value: 'OK', class: 'btn btn-sm btn-danger' }], bodyHtml, head, { headClass: 'bg-danger text-white', closeButton: true, width: 'auto' });
 }
 
 export function fsSuccess(bodyHtml: string, head: string = 'Success') {
-	return fsDialog([{ text: 'OK', value: 'OK', class: 'btn btn-sm btn-success' }], bodyHtml, head, { headClass: 'bg-success text-white', closeButton: true });
+	return fsDialog([{ text: 'OK', value: 'OK', class: 'btn btn-sm btn-success' }], bodyHtml, head, { headClass: 'bg-success text-white', closeButton: true, width: 'auto' });
 }
 
 

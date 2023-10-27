@@ -85,5 +85,6 @@
 }
 
 .fs-dialog-auto {
+  min-width:300px;
   max-width: calc(100vw - 100px);
 }

@@ -29,10 +29,10 @@ var fsdialog = (() => {
 
   // src/fsdialogs.ts
   function fsAlert(bodyHtml, head = "Alert") {
-    return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true });
+    return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true, width: "auto" });
   }
   function fsSuccess(bodyHtml, head = "Success") {
-    return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-success" }], bodyHtml, head, { headClass: "bg-success text-white", closeButton: true });
+    return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-success" }], bodyHtml, head, { headClass: "bg-success text-white", closeButton: true, width: "auto" });
   }
   function fsDialog(buttons, body, head, options = {}) {
     if (options === null || options === void 0) {
