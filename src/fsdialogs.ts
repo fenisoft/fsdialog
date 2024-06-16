@@ -13,7 +13,8 @@ export interface IModalButton {
 export interface IModalOptions {
 	headClass?: string,
 	closeButton?: boolean,
-	width?: string
+	width?: string,
+	closeOnEsc?: boolean,
 	container?: HTMLElement | null
 }
 
@@ -66,7 +67,7 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 		options = {};
 	}
 
-	const modalOptions: IModalOptions = { headClass: '', closeButton: false };
+	const modalOptions: IModalOptions = { headClass: '', closeButton: false, closeOnEsc: false };
 
 	if (options.headClass) {
 		modalOptions.headClass = options.headClass;
@@ -78,6 +79,10 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 
 	if (options.container) {
 		modalOptions.container = options.container
+	}
+
+	if (options.closeOnEsc) {
+		modalOptions.closeOnEsc = options.closeOnEsc
 	}
 
 	let width = '400px';
@@ -137,7 +142,13 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 	return new Promise((resolve) => {
 		element.showModal();
 		element.addEventListener('cancel', event => {
-			event.preventDefault();
+			if (options.closeOnEsc) {
+				// element.close();
+				element.remove();
+				resolve('ESC');
+			} else {
+				event.preventDefault();
+			}
 		});
 
 		document.querySelectorAll(".fs-close-modal").forEach(button => {

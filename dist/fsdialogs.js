@@ -9,7 +9,7 @@ function fsDialog(buttons, body, head, options = {}) {
   if (options === null || options === void 0) {
     options = {};
   }
-  const modalOptions = { headClass: "", closeButton: false };
+  const modalOptions = { headClass: "", closeButton: false, closeOnEsc: false };
   if (options.headClass) {
     modalOptions.headClass = options.headClass;
   }
@@ -18,6 +18,9 @@ function fsDialog(buttons, body, head, options = {}) {
   }
   if (options.container) {
     modalOptions.container = options.container;
+  }
+  if (options.closeOnEsc) {
+    modalOptions.closeOnEsc = options.closeOnEsc;
   }
   let width = "400px";
   if (options.width) {
@@ -67,7 +70,12 @@ function fsDialog(buttons, body, head, options = {}) {
   return new Promise((resolve) => {
     element.showModal();
     element.addEventListener("cancel", (event) => {
-      event.preventDefault();
+      if (options.closeOnEsc) {
+        element.remove();
+        resolve("ESC");
+      } else {
+        event.preventDefault();
+      }
     });
     document.querySelectorAll(".fs-close-modal").forEach((button) => {
       button.addEventListener("click", (event) => {

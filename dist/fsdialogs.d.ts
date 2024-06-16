@@ -10,6 +10,7 @@ export interface IModalOptions {
     headClass?: string;
     closeButton?: boolean;
     width?: string;
+    closeOnEsc?: boolean;
     container?: HTMLElement | null;
 }
 export interface IPromptOptions {

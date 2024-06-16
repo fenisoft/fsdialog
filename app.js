@@ -1,4 +1,4 @@
-import { fsDialog, fsPrompt,fsAlert,fsSuccess } from './dist/fsdialogs.js';
+import { fsDialog, fsPrompt } from './dist/fsdialogs.js';
 
 //
 function simpleDialog() {
@@ -24,6 +24,7 @@ async function confirmDialog() {
     const options = {
         headClass: "bg-danger text-white",
         closeButton: true,
+        closeOnEsc: false
     }
 
     const response = await fsDialog(buttons, 'Are you sure ?', 'Confirm dialog', options);
@@ -41,7 +42,7 @@ async function promptDialog() {
 
 async function promptNumberDialog() {
     const result = document.querySelector("#promptNumberResult");
-    const response = await fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog number', { headClass: 'bg-dark  text-white bg-gradient', inputType:'number' });
+    const response = await fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog number', { headClass: 'bg-dark  text-white bg-gradient', inputType: 'number' });
     if (response.button == 'OK') {
         result.textContent = response.value;
     }
@@ -59,7 +60,7 @@ globalThis.showInfo = function () {
         closeButton: false,
         container: document.querySelector("#innerDialog")
     }
-    const html= /*html*/`<div class="font-8">
+    const html = /*html*/`<div class="font-8">
             <b>Dante Alighieri</b>, o Alighiero, battezzato Durante di Alighiero degli Alighieri e 
             anche noto con il solo nome di Dante, della famiglia Alighieri (Firenze, tra il 14 maggio e il 13 giugno 1265 – 
             Ravenna, notte tra il 13 e il 14 settembre[1][2][3] 1321), è stato un poeta, scrittore e politico italiano.
@@ -67,9 +68,6 @@ globalThis.showInfo = function () {
     `;
     fsDialog(buttons, html, 'Dante Alighieri', options);
 }
-
-
-
 
 
 document.getElementById("testBtn").addEventListener('click', () => {
@@ -90,16 +88,4 @@ document.getElementById("promptNumberBtn").addEventListener('click', () => {
 
 document.getElementById("innerBtn").addEventListener('click', () => {
     document.getElementById("innerDialog").showModal();
-})
-
-document.getElementById("successBtn").addEventListener('click', () => {
-    fsSuccess(/*html*/`<b>Dante Alighieri</b>, o Alighiero, battezzato Durante di Alighiero degli Alighieri e 
-    anche noto con il solo nome di Dante, della famiglia Alighieri (Firenze, tra il 14 maggio e il 13 giugno 1265 – 
-    Ravenna, notte tra il 13 e il 14 settembre[1][2][3] 1321), è stato un poeta, scrittore e politico italiano.`)
-})
-
-document.getElementById("alertBtn").addEventListener('click', () => {
-    fsAlert(/*html*/`<b>Dante Alighieri</b>, o Alighiero, battezzato Durante di Alighiero degli Alighieri e 
-    anche noto con il solo nome di Dante, della famiglia Alighieri (Firenze, tra il 14 maggio e il 13 giugno 1265 – 
-    Ravenna, notte tra il 13 e il 14 settembre[1][2][3] 1321), è stato un poeta, scrittore e politico italiano.`)
 })
