@@ -1,3 +1,9 @@
+
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.2
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */
 "use strict";
 var fsdialog = (() => {
   var __defProp = Object.defineProperty;

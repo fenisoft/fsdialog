@@ -9,7 +9,16 @@ await esbuild.build({
     minify: false,
     splitting: true,
     format: 'esm',
-    target: ['ES2022']
+    target: ['ES2022'],
+    banner: {
+        js: `
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.2
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */`,
+        css: '/* https://github.com/fenisoft/fsdialog  */',
+    },
 })
 
 await esbuild.build({
@@ -22,7 +31,16 @@ await esbuild.build({
     sourcemap: false,
     minify: true,
     format: 'esm',
-    target: ['ES2022']
+    target: ['ES2022'],
+    banner: {
+        js: `
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.2
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */`,
+        css: '/* https://github.com/fenisoft/fsdialog  */',
+    },
 })
 
 
@@ -36,7 +54,16 @@ await esbuild.build({
     minify: false,
     globalName: 'fsdialog',
     format: 'iife',
-    target: ['ES2022']
+    target: ['ES2022'],
+    banner: {
+        js: `
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.2
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */`,
+        css: '/* https://github.com/fenisoft/fsdialog  */',
+    },
 })
 
 await esbuild.build({
@@ -49,6 +76,15 @@ await esbuild.build({
     minify: true,
     globalName: 'fsdialog',
     format: 'iife',
-    target: ['ES2022']
+    target: ['ES2022'],
+    banner: {
+        js: `
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.2
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */`,
+        css: '/* https://github.com/fenisoft/fsdialog  */',
+    },
 })
 // .catch(() => process.exit(1));

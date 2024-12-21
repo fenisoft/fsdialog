@@ -1,5 +1,6 @@
 /**
  * @author Alessandro Batisti <fenisoft@gmail.com>
+ * @version 0.2.2
  */
 export interface IModalButton {
     value: string;

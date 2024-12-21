@@ -11,7 +11,7 @@ let ctx = await esbuild.context({
   
   //await ctx.watch();
   let { host, port } = await ctx.serve({
-    servedir: '/',
+    servedir: './',
     host:'127.0.0.1'
   });
   console.log(`server start: http://${host}:${port}`);
