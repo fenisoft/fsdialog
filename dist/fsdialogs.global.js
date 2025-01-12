@@ -44,7 +44,7 @@ var fsdialog = (() => {
     if (options === null || options === void 0) {
       options = {};
     }
-    const modalOptions = { headClass: "", closeButton: false, closeOnEsc: false };
+    const modalOptions = { headClass: "", closeButton: false, closeOnEsc: false, buttonsPosition: "right" };
     if (options.headClass) {
       modalOptions.headClass = options.headClass;
     }
@@ -56,6 +56,9 @@ var fsdialog = (() => {
     }
     if (options.closeOnEsc) {
       modalOptions.closeOnEsc = options.closeOnEsc;
+    }
+    if (options.buttonsPosition) {
+      modalOptions.buttonsPosition = options.buttonsPosition;
     }
     let width = "400px";
     if (options.width) {
@@ -96,6 +99,9 @@ var fsdialog = (() => {
     } else {
       element.classList.add("fs-dialog-auto");
     }
+    if (options.borderRadius) {
+      element.style.borderRadius = options.borderRadius;
+    }
     element.innerHTML = htmlDialog(btns, body, head, modalOptions);
     if (modalOptions.container) {
       modalOptions.container?.append(element);
@@ -133,28 +139,41 @@ var fsdialog = (() => {
       /*html*/
       `<span style="margin-left:4px"></span>`
     );
+    let buttonClass = "fs-dialog-buttons";
+    let buttonsContent = (
+      /*html*/
+      `<div class="fs-dialog-margin-auto"></div>${htmlButtons}`
+    );
+    if (options.buttonsPosition) {
+      if (options.buttonsPosition == "left") {
+        buttonsContent = htmlButtons;
+      }
+      if (options.buttonsPosition == "center") {
+        buttonClass = `fs-dialog-buttons fs-dialog-buttons-center`;
+        buttonsContent = htmlButtons;
+      }
+    }
     let closeButton = "";
     if (options.closeButton) {
       closeButton = /*html*/
       `<div class="fs-dialog-margin-auto"></div>
-		<div class="fs-close-modal" role="button" data-return="CLOSE">&#10761;</div>`;
+		<div class="fs-close-modal fs-dialog-pointer" role="button" data-return="CLOSE">&#10761;</div>`;
     }
     return (
       /*html*/
       `
-	<div class="title ${options.headClass}" >
+	<div class="fs-dialog-title ${options.headClass}" >
 		<div>${head}</div>
 		${closeButton}	    
  	</div>  
 
-	 <div class="body">
+	 <div class="fs-dialog-body">
 		${body}
  	</div>
  
-	<hr style="margin-top:0px;margin-bottom:0px;margin-left:4px;margin-right:4px; color:##eeeeee">
-	<div class="buttons">
-		<div class="fs-dialog-margin-auto"></div>
-		${htmlButtons}
+	<hr class="fs-dialog-hr">
+	<div class="${buttonClass}">
+		${buttonsContent}
 	</div>
 	`
     );
@@ -176,7 +195,8 @@ var fsdialog = (() => {
         buttonCloseClass: "btn btn-secondary btn-sm",
         inputClass: "fs-dialog-input",
         width: "400px",
-        placeholder: ""
+        placeholder: "",
+        invertButtons: false
       };
     }
     let width = "400px";
@@ -238,7 +258,8 @@ var fsdialog = (() => {
       buttonCloseClass: "btn btn-secondary btn-sm",
       inputClass: "fs-dialog-input",
       width: "400px",
-      placeholder: ""
+      placeholder: "",
+      invertButtons: false
     };
     if (options.buttonOkClass) {
       modalOptions.buttonOkClass = options.buttonOkClass;
@@ -273,6 +294,9 @@ var fsdialog = (() => {
     if (options.inputClass) {
       modalOptions.inputClass = options.inputClass;
     }
+    if (Object.hasOwn(options, "invertButtons")) {
+      modalOptions.invertButtons = options.invertButtons;
+    }
     let numberOptions = "";
     if (modalOptions.inputType == "number") {
       if (value == "") {
@@ -296,33 +320,46 @@ var fsdialog = (() => {
     if (prompt === "") {
       hiddenLabel = " hidden ";
     }
+    let buttons = (
+      /*html*/
+      `<button class="${modalOptions.buttonOkClass}" type="submit" >
+			${modalOptions.buttonOkInnerHTML}
+		</button>
+		<button data-return="CLOSE" type="button" class="fs-dialog-ml-2 ${modalOptions.buttonCloseClass}" id="close_${valueId}">
+			${modalOptions.buttonCloseInnerHTML}
+		</button>`
+    );
+    if (modalOptions.invertButtons) {
+      buttons = /*html*/
+      `<button data-return="CLOSE" type="button" class="${modalOptions.buttonCloseClass}" id="close_${valueId}">
+			${modalOptions.buttonCloseInnerHTML}
+		</button>
+		<button class="fs-dialog-ml-2 ${modalOptions.buttonOkClass}" type="submit" >
+			${modalOptions.buttonOkInnerHTML}
+		</button>`;
+    }
     return (
       /*html*/
       `
-    <div class="title ${modalOptions.headClass}">
+    <div class="fs-dialog-title ${modalOptions.headClass}">
 	   ${head}
 	</div>  
 		
 	<form id="form_${valueId}">
-		<div class="body">
+		<div class="fs-dialog-body">
 			<div class="mb-1">
 				<label for="v${valueId}" ${hiddenLabel} >
 					${prompt}
 				</label>
 				<input class="${modalOptions.inputClass}"  type="${modalOptions.inputType}" name="name_${valueId}" required
 							id="v${valueId}" ${numberOptions} ${placeholder}
-							value="${value}"  maxlength="50" />
+							value="${value}" maxlength="50" />
 			</div>
 		</div>
 		
-		<div class="buttons">
+		<div class="fs-dialog-buttons">
 			<div class="fs-dialog-margin-auto"></div>
-			<button class="${modalOptions.buttonOkClass}" type="submit" >
-				${modalOptions.buttonOkInnerHTML}
-			</button>
-			<button data-return="CLOSE" type="button" class="fs-dialog-ml-2 ${modalOptions.buttonCloseClass}" id="close_${valueId}">
-				${modalOptions.buttonCloseInnerHTML}
-			</button>
+			 ${buttons}
 		</div>
 	<form>
 </div>

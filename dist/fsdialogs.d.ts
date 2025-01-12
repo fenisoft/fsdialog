@@ -12,6 +12,8 @@ export interface IModalOptions {
     closeButton?: boolean;
     width?: string;
     closeOnEsc?: boolean;
+    borderRadius?: string;
+    buttonsPosition?: string;
     container?: HTMLElement | null;
 }
 export interface IPromptOptions {
@@ -25,6 +27,7 @@ export interface IPromptOptions {
     buttonCloseClass?: string;
     buttonOkInnerHTML?: string;
     buttonCloseInnerHTML?: string;
+    invertButtons?: boolean;
     inputClass?: string;
     width?: string;
     placeholder?: string;

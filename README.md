@@ -82,6 +82,8 @@ const response = await fsdialog.fsDialog(buttons, 'Are you sure ?', 'Confirm dia
     width: '400px', // 'auto' = autosize type<string>
     container: body, // type<HTMLElement>
     closeOnEsc: false // if true close dialog when press ESC key and return Promise 'ESC'  
+    borderRadius: '6px', //type <string>  
+    buttonsPosition: 'left' // type <string> 'left' 'center' 'right'
  }
 
 // fsPrompt options default
@@ -95,6 +97,7 @@ const options = {
     buttonCloseInnerHTML: 'CLOSE', //type <string>
     buttonOkClass: 'btn btn-primary btn-sm', //class fron bootstrap  type <string>
     buttonCloseClass: 'btn btn-secondary btn-sm', //class from bootstrap type <string>
+    invertButtons?: false, // button order    true  ? [CANCEL] [OK] : [OK] [CANCEL]  type <boolean>,
     inputClass:'fs-dialog-input', // fs-dialog-input definited in fsdialog.css
     width: '400px', // 'auto' = autosize type<string>
     placeholder: '', // placehiolder input type<string>

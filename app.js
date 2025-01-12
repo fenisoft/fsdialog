@@ -3,14 +3,28 @@ import { fsDialog, fsPrompt } from './dist/fsdialogs.js';
 //
 function simpleDialog() {
     const buttons = [
-        { text: `<i class="bi bi-check2"></i> <b>OK</b>`, value: 'OK', class: "btn btn-success btn-sm" }
+        { text: /*html*/`<i class="bi bi-check2"></i> <b>OK</b>`, value: 'OK', class: "btn btn-success btn-sm" }
     ];
     const options = {
         headClass: "bg-success  text-white",
-        closeButton: false
+        closeButton: false,
     }
     fsDialog(buttons, /*html*/`The Force is with you, young <b class="text-primary">Skywalker</b>. 
     But you are not a <b class="text-success">Jedi</b> yet!`, 'Simple dialog', options);
+}
+
+function simpleDialog2() {
+    const buttons = [
+        { text: /*html*/`<b class="text-primary">OK</b>`, value: 'OK', class: "btn btn-light btn-sm" }
+    ];
+    const options = {
+        headClass: "justify-content-center",
+        borderRadius: '14px',
+        buttonsPosition: 'center'
+
+    }
+    fsDialog(buttons, /*html*/`The Force is with you, young <b class="text-primary">Skywalker</b>. 
+    But you are not a <b class="text-success">Jedi</b> yet!`, 'Simple dialog2', options);
 }
 
 //
@@ -42,7 +56,7 @@ async function promptDialog() {
 
 async function promptNumberDialog() {
     const result = document.querySelector("#promptNumberResult");
-    const response = await fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog number', { headClass: 'bg-dark  text-white bg-gradient', inputType: 'number' });
+    const response = await fsPrompt(result.textContent, 'Insert value:', 'Prompt Dialog number', { headClass: 'bg-dark  text-white bg-gradient', inputType: 'number', invertButtons: true });
     if (response.button == 'OK') {
         result.textContent = response.value;
     }
@@ -72,6 +86,10 @@ globalThis.showInfo = function () {
 
 document.getElementById("testBtn").addEventListener('click', () => {
     simpleDialog();
+});
+
+document.getElementById("testBtn2").addEventListener('click', () => {
+    simpleDialog2();
 });
 
 document.getElementById("confirmBtn").addEventListener('click', () => {

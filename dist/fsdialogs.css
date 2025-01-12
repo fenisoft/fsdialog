@@ -22,6 +22,16 @@
   flex-direction: row;
   align-items: center;
 }
+.fs-dialog-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 4px;
+  border-radius: 6px, 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .fs-dialog-modal .info {
   font-size: 12px;
   display: flex;
@@ -35,6 +45,18 @@
   margin-bottom: 2px;
   padding: 6px;
   border-radius: 3px;
+}
+.fs-dialog-body {
+  margin-bottom: 2px;
+  padding: 6px;
+  border-radius: 3px;
+}
+.fs-dialog-hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #eeeeee;
 }
 .fs-dialog-modal .table-wrapper {
   max-height: calc(100vh - 280px);
@@ -58,6 +80,12 @@
   align-items: center;
   padding: 6px;
 }
+.fs-dialog-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px;
+}
 .fs-dialog-margin-auto {
   flex: 1 1 auto;
 }
@@ -73,5 +101,11 @@
 .fs-dialog-auto {
   min-width: 300px;
   max-width: calc(100vw - 100px);
+}
+.fs-dialog-buttons-center {
+  justify-content: center;
+}
+.fs-dialog-pointer {
+  cursor: pointer;
 }
 /*# sourceMappingURL=fsdialogs.css.map */
