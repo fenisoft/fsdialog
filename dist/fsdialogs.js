@@ -1,7 +1,7 @@
 
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.2
+ * @version 0.2.4
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */
 

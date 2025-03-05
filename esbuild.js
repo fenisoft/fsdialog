@@ -1,6 +1,8 @@
 //const esbuild = require('esbuild');
 import * as esbuild from 'esbuild'
+const version = '0.2.4';
 
+console.log(`Building fsdialogs version ${version}`);
 await esbuild.build({
     entryPoints: [{ in: 'src/index.ts', out: "fsdialogs" }, { in: 'src/fsdialogs.css', out: 'fsdialogs' }],
     outdir: 'dist',
@@ -14,7 +16,7 @@ await esbuild.build({
         js: `
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.2
+ * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
         css: '/* https://github.com/fenisoft/fsdialog  */',
@@ -36,7 +38,7 @@ await esbuild.build({
         js: `
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.2
+ * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
         css: '/* https://github.com/fenisoft/fsdialog  */',
@@ -59,7 +61,7 @@ await esbuild.build({
         js: `
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.2
+ * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
         css: '/* https://github.com/fenisoft/fsdialog  */',
@@ -81,7 +83,7 @@ await esbuild.build({
         js: `
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.2
+ * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
         css: '/* https://github.com/fenisoft/fsdialog  */',

@@ -1,6 +1,6 @@
 {
   "name": "@fenisoft/fsdialog",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "simple html5 <dialog> modal",
   "main": "dist/fsdialogs.js",
   "types": "dist/fsdialogs.d.ts",
@@ -20,8 +20,8 @@
   "type":"module",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }

@@ -1,4 +1,4 @@
-import { fsDialog, fsPrompt } from './dist/fsdialogs.js';
+import { fsDialog, fsPrompt } from '@fenisoft/fsdialog';
 
 //
 function simpleDialog() {
@@ -64,6 +64,7 @@ async function promptNumberDialog() {
 
 
 
+
 globalThis.showInfo = function () {
     const buttons = [
         { text: `<b>CLOSE</b>`, value: 'OK', class: "btn btn-primary btn-sm" }
@@ -91,6 +92,7 @@ document.getElementById("testBtn").addEventListener('click', () => {
 document.getElementById("testBtn2").addEventListener('click', () => {
     simpleDialog2();
 });
+
 
 document.getElementById("confirmBtn").addEventListener('click', () => {
     confirmDialog();
