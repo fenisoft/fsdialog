@@ -1,4 +1,3 @@
-/* https://github.com/fenisoft/fsdialog  */
 /* src/fsdialogs.css */
 :root {
   --fs-dialog-shadow: rgba(0, 0, 0, 0.5);
@@ -108,4 +107,3 @@
 .fs-dialog-pointer {
   cursor: pointer;
 }
-/*# sourceMappingURL=fsdialogs.css.map */

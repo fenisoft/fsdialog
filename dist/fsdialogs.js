@@ -1,10 +1,3 @@
-
-/**  
- * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.4
- * {@link https://github.com/fenisoft/fsdialog GitHub}.
- */
-
 // src/fsdialogs.ts
 function fsAlert(bodyHtml, head = "Alert") {
   return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true, width: "auto" });
@@ -65,6 +58,9 @@ function fsDialog(buttons, body, head, options = {}) {
     }
   }
   const element = document.createElement("dialog");
+  if (!modalOptions.closeOnEsc) {
+    element.setAttribute("closedby", "none");
+  }
   element.classList.add("fs-dialog-modal");
   if (width != "auto") {
     element.style.width = width;
@@ -84,8 +80,9 @@ function fsDialog(buttons, body, head, options = {}) {
     element.showModal();
     element.addEventListener("cancel", (event) => {
       if (options.closeOnEsc) {
+        element.close();
         element.remove();
-        resolve("ESC");
+        resolve("CLOSE");
       } else {
         event.preventDefault();
       }
@@ -344,4 +341,3 @@ export {
   fsPrompt,
   fsSuccess
 };
-//# sourceMappingURL=fsdialogs.js.map

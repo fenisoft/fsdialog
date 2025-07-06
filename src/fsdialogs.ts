@@ -1,7 +1,7 @@
 
 /**
  * @author Alessandro Batisti <fenisoft@gmail.com>
- * @version 0.2.2
+ * @version 0.2.5
  */
 
 export interface IModalButton {
@@ -132,6 +132,10 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 
 
 	const element = document.createElement('dialog');
+	if (!modalOptions.closeOnEsc) {
+		element.setAttribute("closedby", "none");
+	}
+
 	element.classList.add("fs-dialog-modal");
 	if (width != 'auto') {
 		element.style.width = width;
@@ -155,9 +159,9 @@ export function fsDialog(buttons: Array<IModalButton>, body: string, head: strin
 		element.showModal();
 		element.addEventListener('cancel', event => {
 			if (options.closeOnEsc) {
-				// element.close();
+				element.close();
 				element.remove();
-				resolve('ESC');
+				resolve('CLOSE');
 			} else {
 				event.preventDefault();
 			}

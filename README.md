@@ -81,7 +81,7 @@ const response = await fsdialog.fsDialog(buttons, 'Are you sure ?', 'Confirm dia
     closeButton: false, //  <boolean>;
     width: '400px', // 'auto' = autosize type<string>
     container: body, // type<HTMLElement>
-    closeOnEsc: false // if true close dialog when press ESC key and return Promise 'ESC'  
+    closeOnEsc: false // if true close dialog when press ESC key and return Promise 'CLOSE'  (Chrome ver >= 134 ; Firefox ver >= 141 ; Safari feature not supported)
     borderRadius: '6px', //type <string>  
     buttonsPosition: 'left' // type <string> 'left' 'center' 'right'
  }

@@ -38,7 +38,7 @@ async function confirmDialog() {
     const options = {
         headClass: "bg-danger text-white",
         closeButton: true,
-        closeOnEsc: false
+        closeOnEsc:  false
     }
 
     const response = await fsDialog(buttons, 'Are you sure ?', 'Confirm dialog', options);
