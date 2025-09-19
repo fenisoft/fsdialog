@@ -1,3 +1,10 @@
+
+/**  
+ * @author Alessandro Batisti <fenisoft@gmail.com>  
+ * @version 0.2.6
+ * {@link https://github.com/fenisoft/fsdialog GitHub}.
+ */
+
 // src/fsdialogs.ts
 function fsAlert(bodyHtml, head = "Alert") {
   return fsDialog([{ text: "OK", value: "OK", class: "btn btn-sm btn-danger" }], bodyHtml, head, { headClass: "bg-danger text-white", closeButton: true, width: "auto" });
@@ -341,3 +348,4 @@ export {
   fsPrompt,
   fsSuccess
 };
+//# sourceMappingURL=fsdialogs.js.map

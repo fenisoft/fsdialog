@@ -1,7 +1,7 @@
 
 /**
  * @author Alessandro Batisti <fenisoft@gmail.com>
- * @version 0.2.5
+ * @version 0.2.6
  */
 
 export interface IModalButton {
@@ -46,7 +46,6 @@ export interface IPromptResult {
 }
 
 
-//import './fsdialogs.css';
 
 export function fsAlert(bodyHtml: string, head: string = 'Alert') {
 	return fsDialog([{ text: 'OK', value: 'OK', class: 'btn btn-sm btn-danger' }], bodyHtml, head, { headClass: 'bg-danger text-white', closeButton: true, width: 'auto' });
@@ -220,8 +219,6 @@ function htmlDialog(buttons: Array<IModalButton>, body: string, head: string, op
 	</div>
 	`
 }
-
-
 
 //
 /**

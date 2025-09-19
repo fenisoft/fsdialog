@@ -1,6 +1,6 @@
 //const esbuild = require('esbuild');
 import * as esbuild from 'esbuild'
-const version = '0.2.4';
+const version = '0.2.6';
 
 console.log(`Building fsdialogs version ${version}`);
 await esbuild.build({
@@ -19,7 +19,9 @@ await esbuild.build({
  * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
-        css: '/* https://github.com/fenisoft/fsdialog  */',
+        css: `
+/* https://github.com/fenisoft/fsdialog  */
+/* ver: ${version} */`,
     },
 })
 
@@ -41,7 +43,9 @@ await esbuild.build({
  * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
-        css: '/* https://github.com/fenisoft/fsdialog  */',
+        css: `
+/* https://github.com/fenisoft/fsdialog  */ 
+/* ver: ${version} */`,
     },
 })
 
@@ -64,7 +68,9 @@ await esbuild.build({
  * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
-        css: '/* https://github.com/fenisoft/fsdialog  */',
+        css:`
+/* https://github.com/fenisoft/fsdialog  */
+/* ver: ${version} */`,
     },
 })
 
@@ -86,7 +92,9 @@ await esbuild.build({
  * @version ${version}
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */`,
-        css: '/* https://github.com/fenisoft/fsdialog  */',
+        css: 
+`/* https://github.com/fenisoft/fsdialog  */
+ /* ver: ${version} */`,
     },
 })
 // .catch(() => process.exit(1));
