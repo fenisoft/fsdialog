@@ -1,7 +1,7 @@
 
 /**
  * @author Alessandro Batisti <fenisoft@gmail.com>
- * @version 0.2.6
+ * @version 0.2.7
  */
 
 export interface IModalButton {
@@ -35,6 +35,7 @@ export interface IPromptOptions {
 	buttonCloseInnerHTML?: string,
 	invertButtons?: boolean,
 	inputClass?: string,
+	inputLabelClass?: string,
 	width?: string,
 	placeholder?: string
 	container?: HTMLElement | null
@@ -246,6 +247,7 @@ export function fsPrompt(value: string, prompt: string, head: string, options: I
 			buttonOkClass: 'btn btn-primary btn-sm',
 			buttonCloseClass: 'btn btn-secondary btn-sm',
 			inputClass: 'fs-dialog-input',
+			inputLabelClass: 'fs-dialog-input-label',
 			width: '400px',
 			placeholder: '',
 			invertButtons: false
@@ -332,6 +334,7 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 		buttonOkClass: 'btn btn-primary btn-sm',
 		buttonCloseClass: 'btn btn-secondary btn-sm',
 		inputClass: 'fs-dialog-input',
+		inputLabelClass: 'fs-dialog-input-label',
 		width: '400px',
 		placeholder: '',
 		invertButtons: false
@@ -380,6 +383,10 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 
 	if (options.inputClass) {
 		modalOptions.inputClass = options.inputClass;
+	}
+
+	if (options.inputLabelClass) {
+		modalOptions.inputLabelClass = options.inputLabelClass;
 	}
 
 	if (Object.hasOwn(options, 'invertButtons')) {
@@ -438,7 +445,7 @@ function htmlPrompt(value: string, prompt: string, head: string, valueId: string
 	<form id="form_${valueId}">
 		<div class="fs-dialog-body">
 			<div class="mb-1">
-				<label for="v${valueId}" ${hiddenLabel} >
+				<label for="v${valueId}" class="${modalOptions.inputLabelClass}" ${hiddenLabel} >
 					${prompt}
 				</label>
 				<input class="${modalOptions.inputClass}"  type="${modalOptions.inputType}" name="name_${valueId}" required

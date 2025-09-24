@@ -1,7 +1,7 @@
 
 /**  
  * @author Alessandro Batisti <fenisoft@gmail.com>  
- * @version 0.2.6
+ * @version 0.2.7
  * {@link https://github.com/fenisoft/fsdialog GitHub}.
  */
 "use strict";
@@ -198,6 +198,7 @@ var fsdialog = (() => {
         buttonOkClass: "btn btn-primary btn-sm",
         buttonCloseClass: "btn btn-secondary btn-sm",
         inputClass: "fs-dialog-input",
+        inputLabelClass: "fs-dialog-input-label",
         width: "400px",
         placeholder: "",
         invertButtons: false
@@ -261,6 +262,7 @@ var fsdialog = (() => {
       buttonOkClass: "btn btn-primary btn-sm",
       buttonCloseClass: "btn btn-secondary btn-sm",
       inputClass: "fs-dialog-input",
+      inputLabelClass: "fs-dialog-input-label",
       width: "400px",
       placeholder: "",
       invertButtons: false
@@ -297,6 +299,9 @@ var fsdialog = (() => {
     }
     if (options.inputClass) {
       modalOptions.inputClass = options.inputClass;
+    }
+    if (options.inputLabelClass) {
+      modalOptions.inputLabelClass = options.inputLabelClass;
     }
     if (Object.hasOwn(options, "invertButtons")) {
       modalOptions.invertButtons = options.invertButtons;
@@ -352,7 +357,7 @@ var fsdialog = (() => {
 	<form id="form_${valueId}">
 		<div class="fs-dialog-body">
 			<div class="mb-1">
-				<label for="v${valueId}" ${hiddenLabel} >
+				<label for="v${valueId}" class="${modalOptions.inputLabelClass}" ${hiddenLabel} >
 					${prompt}
 				</label>
 				<input class="${modalOptions.inputClass}"  type="${modalOptions.inputType}" name="name_${valueId}" required

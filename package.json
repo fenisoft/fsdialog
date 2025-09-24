@@ -1,6 +1,6 @@
 {
   "name": "@fenisoft/fsdialog",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "simple html5 <dialog> modal",
   "main": "dist/fsdialogs.js",
   "types": "dist/fsdialogs.d.ts",

@@ -1,6 +1,6 @@
 /**
  * @author Alessandro Batisti <fenisoft@gmail.com>
- * @version 0.2.6
+ * @version 0.2.7
  */
 export interface IModalButton {
     value: string;
@@ -29,6 +29,7 @@ export interface IPromptOptions {
     buttonCloseInnerHTML?: string;
     invertButtons?: boolean;
     inputClass?: string;
+    inputLabelClass?: string;
     width?: string;
     placeholder?: string;
     container?: HTMLElement | null;

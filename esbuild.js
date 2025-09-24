@@ -1,6 +1,6 @@
 //const esbuild = require('esbuild');
 import * as esbuild from 'esbuild'
-const version = '0.2.6';
+const version = '0.2.7';
 
 console.log(`Building fsdialogs version ${version}`);
 await esbuild.build({

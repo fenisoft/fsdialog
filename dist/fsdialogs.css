@@ -1,6 +1,6 @@
 
 /* https://github.com/fenisoft/fsdialog  */
-/* ver: 0.2.6 */
+/* ver: 0.2.7 */
 /* src/fsdialogs.css */
 .fs-dialog-modal {
   --fs-dialog-shadow: rgba(0, 0, 0, 0.5);
@@ -14,7 +14,6 @@
   border-radius: 6px;
   padding: 0px;
   margin: auto;
-  font-size: 1rem;
 }
 .fs-dialog-title {
   font-size: 16px;
@@ -53,6 +52,10 @@
 }
 .fs-dialog-input {
   width: 100%;
+}
+.fs-dialog-input-label {
+  margin: 0;
+  padding: 0;
 }
 .fs-dialog-input:focus {
   outline: none;
